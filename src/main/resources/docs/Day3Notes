@@ -27,9 +27,10 @@ hystrix url: http://localhost:9091/hystrix
 
 
 docker
-
-
-docker run -h 192.168.99.100 -p 7070:7070 --name demo-app --link demo-mysql:mysql -d my-repo/ekyc
+docker tag {imagename/ekyc}:latest {hub id}/{hub-repo-name}:{any-tag-name}
+docker tag my-repo/ekyc:latest freddysamuel/docker-learning:demo-app-tag-1
+docker push freddysamuel/docker-learning:demo-app-tag-1
+docker run -h 192.168.99.100 -p 7777:7777 --name multi --link demo-mysql:mysql -d my-repo/ekyc
 
 demo-mysql is container name
 mysql is image name
