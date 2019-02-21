@@ -1,0 +1,35 @@
+Microservices
+
+* Individual scalable components, deployable without service interruptions
+* Failure redirection
+* Apigee API management (Provides proxies and redirects to actual service provides authentication, mediation and callouts in the process)
+* breakdown bus logic into separate containers(different service calls running in different environments)
+* calls API gateway and then routes into necessary API
+* managed runtime environment directly on OS without installing a application on app server 
+
+Principles
+
+* Single responsibility
+* Built around a specific business logic
+* Independently deployable 
+* Never Fail system with zero fault tolerance
+
+
+Client-->API Gateway-->Load balancing-->Services
+
+Spring, Spring boot,Jersey or swagger to create a rest service.(Java)
+
+consul agent command
+consul agent -server -bootstrap-expect=1 -data-dir=consul-data -ui -bind=192.168.0.133
+URL: http://localhost:8500/ui
+
+hystrix url: http://localhost:9091/hystrix
+
+
+docker
+
+
+docker run -h 192.168.99.100 -p 7070:7070 --name demo-app --link demo-mysql:mysql -d my-repo/ekyc
+
+demo-mysql is container name
+mysql is image name
