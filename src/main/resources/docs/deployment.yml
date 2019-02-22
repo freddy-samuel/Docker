@@ -1,0 +1,27 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+   name: microservice-ekyc
+spec:
+   replicas: 3
+   selector:
+      matchLabels:
+         app: microservice-ekyc
+   minReadySeconds: 20
+   strategy:
+      type: RollingUpdate
+      rollingUpdate:
+         maxUnavailable: 1
+         maxSurge: 1
+   template:
+      metadata:
+         labels:
+            app: microservice-ekyc
+      spec:
+         containers:
+         - name: microservice-ekyc
+           image: freddy-samuel/freddysamuel:demo-app-tag-1
+           ports:
+           - containerPort: 7070
+           imagePullPolicy: Always 
+             
