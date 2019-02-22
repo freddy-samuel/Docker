@@ -195,9 +195,14 @@ minikube start -p cluster1
 minikube -p cluster1 dashboard
 --------------------------------------------------------------
 kubectl get pods --all-namespaces
+kubectl delete --all pods --namespace=default
+kubectl delete --all deployments --namespace=default
+kubectl delete --all services --namespace=default
 ------------------------------------------------
 kubectl cluster-info
 --------------------------------
 kubectl version
 -------------------------------
-kubectl create -f "G:\Local disk\BOAChennai\deployment.yml"
+kubectl create -f "C:\Users\Administrator\eclipse-workspace\docker\src\main\resources\docs\deployment.yml"
+
+kubectl apply -f "C:\Users\Administrator\eclipse-workspace\docker\src\main\resources\docs\deployment.yml"

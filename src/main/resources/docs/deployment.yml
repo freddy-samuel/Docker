@@ -1,13 +1,13 @@
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
-   name: microservice-ekyc
+   name: microservice-ekyc-1
 spec:
    replicas: 3
    selector:
       matchLabels:
          app: microservice-ekyc
-   minReadySeconds: 20
+   minReadySeconds: 300
    strategy:
       type: RollingUpdate
       rollingUpdate:
@@ -20,7 +20,7 @@ spec:
       spec:
          containers:
          - name: microservice-ekyc
-           image: freddy-samuel/freddysamuel:demo-app-tag-1
+           image: freddysamuel/docker-learning:demo-app-tag-1
            ports:
            - containerPort: 7070
            imagePullPolicy: Always 
